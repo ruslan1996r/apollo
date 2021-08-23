@@ -1,0 +1,98 @@
+{
+  "name": "graphql-example-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "lint": "eslint ./src/**/*.{ts,tsx}",
+    "lint:fix": "eslint ./src/**/*.{ts,tsx} --fix",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "type-check": "tsc --noEmit",
+    "dev": "concurrently \"yarn start\" \"yarn graphql:generate:watch\"",
+    "graphql:generate": "graphql codegen",
+    "graphql:generate:watch": "graphql codegen --watch",
+    "graphql:coverage": "graphql coverage",
+    "graphql:validate": "graphql validate"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.3.13",
+    "@chakra-ui/react": "^1.4.1",
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.1.5",
+    "framer-motion": "^3.10.6",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
+    "react-router-dom": "^5.2.0",
+    "web-vitals": "^1.1.1"
+  },
+  "devDependencies": {
+    "@graphql-cli/codegen": "1.17.21",
+    "@graphql-cli/coverage": "2.1.0",
+    "@graphql-cli/validate": "2.1.0",
+    "@graphql-codegen/introspection": "^1.18.1",
+    "@graphql-codegen/named-operations-object": "^1.18.1",
+    "@graphql-codegen/near-operation-file-preset": "^1.17.13",
+    "@graphql-codegen/schema-ast": "^1.18.1",
+    "@graphql-codegen/typescript": "1.21.1",
+    "@graphql-codegen/typescript-operations": "1.17.15",
+    "@graphql-codegen/typescript-react-apollo": "2.2.3",
+    "@graphql-eslint/eslint-plugin": "^0.9.0",
+    "@graphql-tools/mock": "^8.1.1",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^13.0.13",
+    "@types/jest": "^26.0.21",
+    "@types/node": "^14.14.35",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/react-router-dom": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "^4.16.1",
+    "@typescript-eslint/parser": "^4.16.1",
+    "casual": "^1.6.2",
+    "concurrently": "^6.0.0",
+    "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.4.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.3.2",
+    "eslint-plugin-jest-dom": "^3.6.5",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-testing-library": "^3.10.1",
+    "graphql": "15.3.0",
+    "graphql-cli": "^4.1.0",
+    "graphql.macro": "^1.4.2",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
+    "react-scripts": "4.0.3",
+    "simple-git-hooks": "^2.2.0",
+    "typescript": "^4.1.2"
+  },
+  "resolutions": {
+    "graphql": "15.3.0"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md, graphql}": "prettier --write",
+    "src/**/*.{js,jsx,ts,tsx,graphql}": "yarn run lint:fix"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

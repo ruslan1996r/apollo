@@ -1,0 +1,53 @@
+{
+  "extends": [
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "react-app",
+    "react-app/jest",
+    "prettier"
+  ],
+  "plugins": ["@typescript-eslint", "@graphql-eslint"],
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "testing-library/prefer-screen-queries": "error",
+    "testing-library/no-manual-cleanup": "error",
+    "testing-library/prefer-wait-for": "error",
+    "testing-library/no-await-sync-events": "error"
+  },
+
+  // Overrides for GraphQL Eslint plugin
+  // https://github.com/dotansimha/graphql-eslint
+  "overrides": [
+    {
+      "files": ["*.tsx", "*.ts", "*.jsx", "*.js"],
+      "processor": "@graphql-eslint/graphql"
+    },
+    {
+      "files": ["*.graphql"],
+      "parser": "@graphql-eslint/eslint-plugin",
+      "parserOptions": {
+        "operations": ["./src/**/*.tsx"]
+      },
+      "plugins": ["@graphql-eslint"],
+      "rules": {
+        "@graphql-eslint/require-id-when-available": [
+          "error",
+          {
+            "fieldName": "_id"
+          }
+        ],
+        "@graphql-eslint/validate-against-schema": "error",
+        "@graphql-eslint/no-anonymous-operations": "error",
+        "@graphql-eslint/no-operation-name-suffix": "warn",
+        "@graphql-eslint/avoid-duplicate-fields": "warn",
+        "@graphql-eslint/avoid-operation-name-prefix": [
+          "warn",
+          {
+            "keywords": ["get"]
+          }
+        ]
+      }
+    }
+  ],
+  "ignorePatterns": ["__generated__"]
+}
